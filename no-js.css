@@ -1,0 +1,10 @@
+/* Loaded only via <noscript> when JavaScript is disabled.
+   The FAQ accordion is opened by JS; without it, reveal every answer
+   so content is never hidden from users or assistive tech. */
+.faq-a {
+  max-height: none !important;
+  overflow: visible !important;
+}
+.faq-icon {
+  display: none !important;
+}

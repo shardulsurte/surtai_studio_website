@@ -1,0 +1,42 @@
+# ── Cloudflare Pages: HTTP response headers ──
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+# Place this file (named exactly "_headers", no extension) at the site root.
+
+/*
+  # ── Content Security Policy ──
+  # script-src is strict: the page has no inline scripts and no inline event
+  # handlers; the JSON-LD blocks are data (type="application/ld+json"), which
+  # the browser does not execute, so they are not subject to script-src.
+  # style-src has NO 'unsafe-inline' because all inline style="" attributes were
+  # removed; only Google Fonts' stylesheet is allowed.
+  # frame-src/child-src allow the Vimeo player that loads on click.
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://player.vimeo.com; child-src https://player.vimeo.com; upgrade-insecure-requests
+
+  # ── Transport security ──
+  # Forces HTTPS for two years incl. subdomains. Add "; preload" and submit to
+  # hstspreload.org ONLY once you are certain every subdomain is HTTPS-only.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+
+  # ── Clickjacking / framing ──
+  X-Frame-Options: DENY
+
+  # ── MIME sniffing ──
+  X-Content-Type-Options: nosniff
+
+  # ── Referrer ──
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # ── Cross-origin isolation (popup isolation; safe with the Vimeo iframe) ──
+  Cross-Origin-Opener-Policy: same-origin
+
+  # ── Feature gating ──
+  # Disables sensors/APIs the site never uses; allows autoplay/fullscreen/PiP
+  # for this origin and the Vimeo player so the showreel can go fullscreen.
+  Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), payment=(), usb=(), autoplay=(self "https://player.vimeo.com"), fullscreen=(self "https://player.vimeo.com"), picture-in-picture=(self "https://player.vimeo.com")
+
+# ── Caching ──
+# Filenames are not content-hashed, so cache for a day and revalidate. Once you
+# adopt fingerprinted asset names (e.g. main.4f2a.css), raise this to
+# "public, max-age=31536000, immutable".
+/assets/*
+  Cache-Control: public, max-age=86400, must-revalidate
