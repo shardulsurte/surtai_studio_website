@@ -19,21 +19,21 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="SurtAI — AI Video Ads · Brand Films · Documentaries">
+  <meta property="og:title" content="SurtAI - AI Video Ads · Brand Films · Documentaries">
   <meta property="og:description" content="Big-six quality at a fraction of the cost. AI-native creative studio. Senior creative direction on every brief.">
   <meta property="og:url" content="https://surtaistudio.com">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SurtAI">
-  <meta property="og:image" content="https://surtaistudio.com/assets/img/og-image.jpg">
+  <meta property="og:image" content="https://surtaistudio.com/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="SurtAI — AI-native creative studio">
+  <meta property="og:image:alt" content="SurtAI - AI-native creative studio">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SurtAI — AI Video Ads · Brand Films · Documentaries">
+  <meta name="twitter:title" content="SurtAI - AI Video Ads · Brand Films · Documentaries">
   <meta name="twitter:description" content="Big-six quality at a fraction of the cost. AI-native creative studio.">
-  <meta name="twitter:image" content="https://surtaistudio.com/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="https://surtaistudio.com/assets/img/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,13 +100,16 @@
         </div>
 
         <div class="hero-panel">
-          <!-- HERO VIDEO:
-               1. Put your Vimeo numeric ID in data-vimeo-id (from the URL,
-                  e.g. vimeo.com/123456789  →  data-vimeo-id="123456789").
-               2. Drop a 1920x1080 poster still at the src path below.
-               The Vimeo player loads only on click, so the page stays fast. -->
-          <div class="hero-video" data-vimeo-id="VIMEO_ID">
-            <button class="hero-video-btn" type="button" aria-label="Play showreel">
+          <!-- HERO VIDEO (Bunny Stream):
+               1. data-bunny-lib  = your Bunny Library ID (the number; same for every video).
+               2. data-bunny-id   = this video's GUID (the long id from the video's Embed panel).
+               3. Drop a 1920x1080 poster still at the src path below.
+               The Bunny player loads only on click, so the page stays fast. -->
+          <div class="hero-video"
+               data-bunny-lib="681228"
+               data-bunny-id="3517089a-f112-403a-bee1-f719c7679b84"
+               data-title="SurtAI Documentary Showreel">
+            <button class="hero-video-btn" type="button" aria-label="Play Showreel">
               <img
                 class="hero-video-poster"
                 src="./assets/img/hero-poster.jpg"
@@ -115,9 +118,10 @@
                 loading="eager" decoding="async"
               >
               <span class="hero-video-play" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 7.5L17 12L9 16.5V7.5Z" fill="#1a0d04"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="72" height="72" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.5)" stroke-width="1.1"/>
+					<path d="M10 8.3L16 12L10 15.7V8.3Z" fill="#ffffff"/>
+				</svg>
               </span>
             </button>
           </div>
@@ -159,57 +163,76 @@
 
         <div class="video-grid" role="list">
 
-          <!-- Card 1 — real brief, demo pending -->
+          <!-- Card 1 — paste this film's GUID into data-bunny-id below.
+               href points to Bunny's own play page: a graceful fallback if JS is off. -->
           <div class="video-card" role="listitem">
-            <a class="video-placeholder" href="#contact" aria-label="AI Video Ad demo — coming soon">
+            <a class="video-placeholder"
+               data-bunny-lib="681228"
+               data-bunny-id="49dbcb89-f158-4b25-8669-f23ea8fb0129"
+               data-title="AI Video Ad"
+               href="https://player.mediadelivery.net/play/681228/49dbcb89-f158-4b25-8669-f23ea8fb0129"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Play: AI Video Ad">
+			   <img class="video-poster" src="./assets/img/card1-poster.jpg" alt="" loading="lazy" decoding="async">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
                   <path d="M10 8.3L16 12L10 15.7V8.3Z" fill="#ffffff"/>
                 </svg>
               </span>
-              <span class="video-soon-badge">Demo coming soon</span>
             </a>
             <div class="video-card-body">
               <span class="video-category">AI Video Ad</span>
-              <h3 class="video-title">Electronics retail launch</h3>
-              <p class="video-brief">Announce a new showroom in under 60 seconds. Deliver confidence, not just information.</p>
+              <h3 class="video-title">Dental Clinic Services</h3>
+              <p class="video-brief">Announce your professional services in under 60 seconds. Deliver confidence, not just information.</p>
             </div>
           </div>
 
-          <!-- Card 2 -->
+          <!-- Card 2 — Brand Film. Update the title/brief below to match the real film. -->
           <div class="video-card" role="listitem">
-            <a class="video-placeholder video-placeholder--dim" href="#contact" aria-label="Brand Film — coming soon">
+            <a class="video-placeholder"
+               data-bunny-lib="681228"
+               data-bunny-id="4fae545e-71f0-4590-acc5-23e60dc58ece"
+               data-title="Brand Film"
+               href="https://player.mediadelivery.net/play/681228/4fae545e-71f0-4590-acc5-23e60dc58ece"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Play: Brand Film">
+			   <img class="video-poster" src="./assets/img/card2-poster.jpg" alt="" loading="lazy" decoding="async">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-                  <path d="M10 8.3L16 12L10 15.7V8.3Z" fill="rgba(255,255,255,0.6)"/>
+                  <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                  <path d="M10 8.3L16 12L10 15.7V8.3Z" fill="#ffffff"/>
                 </svg>
               </span>
-              <span class="video-soon-badge">Coming soon</span>
             </a>
             <div class="video-card-body">
               <span class="video-category">Brand Film</span>
-              <h3 class="video-title">Next project</h3>
+              <h3 class="video-title">Cosmetics Firm Brand Story</h3>
               <p class="video-brief">A 60–120 second story-led film for a brand that knows what it stands for and needs a film that proves it.</p>
             </div>
           </div>
 
-          <!-- Card 3 -->
+          <!-- Card 3 — Documentary. Update the title/brief below to match the real film. -->
           <div class="video-card" role="listitem">
-            <a class="video-placeholder video-placeholder--dim" href="#contact" aria-label="Documentary — coming soon">
+            <a class="video-placeholder"
+               data-bunny-lib="681228"
+               data-bunny-id="3517089a-f112-403a-bee1-f719c7679b84"
+               data-title="Documentary"
+               href="https://player.mediadelivery.net/play/681228/3517089a-f112-403a-bee1-f719c7679b84"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Play: Documentary">
+			   <img class="video-poster" src="./assets/img/card3-poster.jpg" alt="" loading="lazy" decoding="async">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-                  <path d="M10 8.3L16 12L10 15.7V8.3Z" fill="rgba(255,255,255,0.6)"/>
+                  <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                  <path d="M10 8.3L16 12L10 15.7V8.3Z" fill="#ffffff"/>
                 </svg>
               </span>
-              <span class="video-soon-badge">Coming soon</span>
             </a>
             <div class="video-card-body">
               <span class="video-category">Documentary</span>
-              <h3 class="video-title">Next project</h3>
-              <p class="video-brief">Long-form credibility. For the brand whose story is too important to tell in sixty seconds.</p>
+              <h3 class="video-title">Documentary for an NGO</h3>
+              <p class="video-brief">Cinema. Human stories, allowed to breathe. So your audience can experience your truth.</p>
             </div>
           </div>
 
@@ -538,7 +561,12 @@
             <span class="contact-pref">Prefer async?</span>
             <h3 class="contact-card-title">Book 20 minutes</h3>
             <p class="contact-card-desc">Grab a slot that suits your timezone. Ideal for international briefs — no back-and-forth on timings.</p>
+			<!-- The calendly url has been commented out for now and will be activated next week
             <a href="https://calendly.com/your-link-here" class="contact-btn contact-btn--primary" target="_blank" rel="noopener noreferrer">Schedule 20 minutes →</a>
+			-->
+			
+			<a href="mailto:hello@surtaistudio.com?subject=Let%27s%20talk" class="contact-btn contact-btn--primary">Get in touch →</a>
+			
           </div>
 
 

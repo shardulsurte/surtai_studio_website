@@ -157,20 +157,31 @@ document.querySelectorAll('[data-carousel]').forEach(car => {
   show(0);
 });
 
-// ── Hero video: load Vimeo player on click ──
-document.querySelectorAll('.hero-video').forEach(box => {
-  const btn = box.querySelector('.hero-video-btn');
-  const id = box.dataset.vimeoId;
-  if (!btn || !id || id === 'VIMEO_ID') return; // not configured yet
+// ── Video facades: load the Bunny Stream player on click ──
+// One handler for the hero showreel AND every Showcase card. Each facade
+// (the .hero-video div, or a .video-placeholder link) carries:
+//   data-bunny-lib = your Bunny Library ID  (the number; same for every video)
+//   data-bunny-id  = that video's GUID      (from the video's Embed panel)
+//   data-title     = accessible player title (optional)
+// The player iframe is injected only on click, so nothing loads from Bunny
+// until a visitor actually presses play — the page stays fast.
+document.querySelectorAll('[data-bunny-id]').forEach(facade => {
+  const lib = facade.dataset.bunnyLib;
+  const id = facade.dataset.bunnyId;
+  // Still holding placeholder values? Leave the facade as a poster so an
+  // un-filled slot never loads a broken player.
+  if (!lib || !id || lib === 'LIBRARY_ID' || id.indexOf('VIDEO_GUID') === 0) return;
 
-  btn.addEventListener('click', () => {
+  facade.addEventListener('click', e => {
+    e.preventDefault(); // for the <a> cards; harmless on the hero <div>
     const iframe = document.createElement('iframe');
-    iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`;
-    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+    iframe.src = `https://iframe.mediadelivery.net/embed/${lib}/${id}?autoplay=true&preload=true&responsive=true`;
+    iframe.loading = 'lazy';
+    iframe.allow = 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen';
     iframe.setAttribute('allowfullscreen', '');
-    iframe.title = 'SurtAI showreel';
-    box.innerHTML = '';
-    box.appendChild(iframe);
+    iframe.title = facade.dataset.title || 'SurtAI film';
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
   });
 });
 

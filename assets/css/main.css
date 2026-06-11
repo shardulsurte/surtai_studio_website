@@ -317,7 +317,7 @@
     .hero-panel {
       animation: fadeUp 0.5s 0.1s ease both;
     }
-    /* Hero video facade — 16:9, poster + play button, loads Vimeo on click */
+    /* Hero video facade — 16:9, poster + play button, loads Bunny on click */
     .hero-video {
       position: relative; width: 100%; aspect-ratio: 16/9;
       border-radius: var(--radius); overflow: hidden;
@@ -331,19 +331,19 @@
     .hero-video-poster {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    .hero-video-play {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 72px; height: 72px; border-radius: 50%;
-      background: var(--orange);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
-      transition: transform var(--fast), background var(--fast);
-    }
-    .hero-video-play svg { margin-left: 4px; } /* optical centering of triangle */
-    .hero-video-btn:hover .hero-video-play,
-    .hero-video-btn:focus-visible .hero-video-play { transform: translate(-50%, -50%) scale(1.08); background: #f3742f; }
-    /* The Vimeo iframe injected on click fills the same frame */
+    
+	.hero-video-play {
+	position: absolute; top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex; align-items: center; justify-content: center;
+	filter: drop-shadow(0 2px 10px rgba(0,0,0,0.45));
+	transition: transform var(--fast);
+	}
+	.hero-video-btn:hover .hero-video-play,
+	.hero-video-btn:focus-visible .hero-video-play { transform: translate(-50%, -50%) scale(1.08); }
+	
+	
+    /* The Bunny iframe injected on click fills the same frame */
     .hero-video iframe {
       position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
     }
@@ -456,7 +456,7 @@
     .p-note { font-size: var(--t-sm); color: var(--ink-3); margin-top: var(--sp-3); }
 
     /* ════════════════════════════════════════
-       SELECTED WORK — video cards (Vimeo-ready)
+       SELECTED WORK — video cards (Bunny-ready)
     ════════════════════════════════════════ */
     .work-intro {
       font-size: var(--t-lg); color: var(--ink-2); font-weight: 400;
@@ -477,7 +477,7 @@
       transition: transform var(--base), box-shadow var(--base);
     }
     .video-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    /* Placeholder = where the Vimeo iframe will drop in.
+    /* Placeholder = where the Bunny player will drop in.
        Branded with a navy→near-black wash so the orange play
        state reads as your brand even before video is live. */
     .video-placeholder {
@@ -493,6 +493,14 @@
     .video-placeholder--dim {
       background: linear-gradient(135deg, #34384a, #15171f);
     }
+	
+	.video-placeholder img {
+	  position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+.video-play-icon { position: relative; z-index: 1; }
+	
     .video-play-icon {
       display: flex; align-items: center; justify-content: center;
       transition: transform var(--fast);
@@ -518,6 +526,10 @@
       font-weight: 500; font-size: var(--t-lg); color: var(--ink);
     }
     .video-brief { font-size: var(--t-sm); color: var(--ink-2); line-height: 1.5; max-width: none; }
+    /* The Bunny player injected on click fills the placeholder frame */
+    .video-placeholder iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
 
     @media (max-width: 760px) {
       .video-grid { grid-template-columns: 1fr; gap: var(--sp-8); }
