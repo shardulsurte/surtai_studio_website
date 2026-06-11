@@ -32,7 +32,7 @@
   # ── Feature gating ──
   # Disables sensors/APIs the site never uses; allows autoplay/fullscreen/PiP
   # for this origin and the Vimeo player so the showreel can go fullscreen.
-  Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), payment=(), usb=(), autoplay=(self "https://player.vimeo.com"), fullscreen=(self "https://player.vimeo.com"), picture-in-picture=(self "https://player.vimeo.com")
+  Permissions-Policy: accelerometer=(), camera=(), microphone=(), geolocation=(), payment=(), usb=(), autoplay=(self "https://iframe.mediadelivery.net"), fullscreen=(self "https://iframe.mediadelivery.net"), picture-in-picture=(self "https://iframe.mediadelivery.net")
 
 # ── Caching ──
 # Filenames are not content-hashed, so cache for a day and revalidate. Once you
