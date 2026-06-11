@@ -10,7 +10,7 @@
   # style-src has NO 'unsafe-inline' because all inline style="" attributes were
   # removed; only Google Fonts' stylesheet is allowed.
   # frame-src/child-src allow the Vimeo player that loads on click.
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://player.vimeo.com; child-src https://player.vimeo.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.b-cdn.net; connect-src 'self'; frame-src https://iframe.mediadelivery.net; child-src https://iframe.mediadelivery.net; upgrade-insecure-requests
 
   # ── Transport security ──
   # Forces HTTPS for two years incl. subdomains. Add "; preload" and submit to
